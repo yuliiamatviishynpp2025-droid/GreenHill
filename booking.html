@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Залиште заявку на відпочинок у Green Hill — затишних котеджах у Карпатах.">
+    <title>Бронювання — Green Hill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="booking.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false,
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#23412E",
+                        "primary-light": "#3E6549",
+                        accent: "#E8DFD0",
+                        background: "#FFFFFF",
+                        text: "#26352B",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html" aria-label="Green Hill — на головну">
+            <img src="images/logo.svg" alt="">
+            <span>Green Hill</span>
+        </a>
+
+        <nav class="navigation" aria-label="Головна навігація">
+            <ul>
+                <li><a href="index.html#home">Головна</a></li>
+                <li><a href="index.html#about">Про нас</a></li>
+                <li><a href="index.html#cottages">Котеджі</a></li>
+                <li><a href="calculator.html">Розрахувати вартість</a></li>
+                <li><a href="index.html#gallery">Галерея</a></li>
+                <li><a href="index.html#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <a class="button header__button header__button--active" href="booking.html" aria-current="page">
+            <i class="fas fa-calendar-check icon" aria-hidden="true"></i>
+            Забронювати
+        </a>
+    </header>
+
+    <main>
+        <section class="booking" aria-labelledby="booking-title">
+            <div class="booking__intro">
+                <h1 id="booking-title">Забронювати відпочинок</h1>
+                <p>Заповніть форму, щоб залишити заявку на відпочинок у Green Hill. Ми зв’яжемося з вами для
+                    підтвердження деталей бронювання.</p>
+            </div>
+
+            <div class="booking__layout">
+                <form class="booking-form" action="#" method="post">
+                    <p class="booking-form__note">Поля, позначені <span aria-hidden="true">*</span>, обов’язкові
+                        для заповнення.</p>
+
+                    <div class="form-field">
+                        <label for="name">Ім’я та прізвище <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+
+                    <div class="booking-form__row">
+                        <div class="form-field">
+                            <label for="phone">Номер телефону <span class="required" aria-hidden="true">*</span></label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="097 000 00 00"
+                                required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">Електронна пошта</label>
+                            <input type="email" id="email" name="email" autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="cottage">Котедж <span class="required" aria-hidden="true">*</span></label>
+                        <select id="cottage" name="cottage" required>
+                            <option value="" selected disabled>Оберіть котедж</option>
+                            <option value="cottage-1">Котедж 1</option>
+                            <option value="cottage-2">Котедж 2</option>
+                        </select>
+                    </div>
+
+                    <div class="booking-form__row">
+                        <div class="form-field">
+                            <label for="checkin">Дата заїзду <span class="required" aria-hidden="true">*</span></label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="checkout">Дата виїзду <span class="required" aria-hidden="true">*</span></label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="guests">Кількість гостей <span class="required" aria-hidden="true">*</span></label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message">Додаткове повідомлення або побажання</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+
+                    <button class="button booking-form__submit" type="submit">Надіслати заявку</button>
+                </form>
+
+                <aside class="booking-steps" aria-labelledby="steps-title">
+                    <h2 id="steps-title">Як це працює?</h2>
+                    <ol class="booking-steps__list">
+                        <li>Заповніть форму</li>
+                        <li>Ми зв’яжемося з вами</li>
+                        <li>Підтвердимо деталі відпочинку</li>
+                    </ol>
+                </aside>
+            </div>
+
+            <p class="booking__back">
+                <a href="index.html">← Повернутися на головну</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+        <p><strong>Green Hill — відпочинок у Карпатах</strong></p>
+        <address class="footer__contacts">
+            <p>Адреса: вул. Тараса Шевченка, Гребенів, Львівська область, 82634</p>
+            <p>Телефон: <a href="tel:+380979359423">097 935 94 23</a></p>
+            <p>Instagram:
+                <a href="https://www.instagram.com/greenhill_cottage_/" target="_blank"
+                    rel="noopener noreferrer">@greenhill_cottage_</a>
+            </p>
+        </address>
+        <p>© 2026 Green Hill. Усі права захищені.</p>
+    </footer>
+</body>
+
+</html>

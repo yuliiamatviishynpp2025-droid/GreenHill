@@ -1,0 +1,203 @@
+/* ===== Сторінка бронювання (booking.html) ===== */
+
+/* Активна кнопка «Забронювати» у шапці */
+.header__button--active {
+    background: var(--color-primary-light);
+    box-shadow: 0 0 0 3px var(--color-accent);
+}
+
+/* Основний блок */
+.booking {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--section-spacing) 24px;
+}
+
+.booking__intro {
+    max-width: 640px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.booking__intro h1 {
+    margin: 0 0 12px;
+    color: var(--color-primary);
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.2;
+}
+
+.booking__intro p {
+    margin: 0;
+    font-size: 17px;
+}
+
+/* Дві колонки: форма + інформаційний блок */
+.booking__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+/* Форма */
+.booking-form {
+    display: grid;
+    gap: 20px;
+    padding: 32px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.booking-form__note {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-primary-light);
+}
+
+.booking-form__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.required {
+    color: var(--color-primary);
+}
+
+/* Select і textarea у стилі існуючих input (.form-field input) */
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    color: var(--color-text);
+    font: inherit;
+}
+
+.form-field select {
+    min-height: 44px;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.booking-form__submit {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 4px;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Блок «Як це працює?» */
+.booking-steps {
+    padding: 24px;
+    border-radius: var(--radius);
+    background: var(--color-accent);
+}
+
+.booking-steps h2 {
+    margin: 0 0 16px;
+    color: var(--color-primary);
+    font-size: 22px;
+}
+
+.booking-steps__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    gap: 14px;
+}
+
+.booking-steps__list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    counter-increment: step;
+    font-size: 15px;
+}
+
+.booking-steps__list li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Посилання «Повернутися на головну» */
+.booking__back {
+    margin: 40px 0 0;
+    text-align: center;
+}
+
+.booking__back a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.booking__back a:hover {
+    color: var(--color-primary-light);
+}
+
+/* Контакти у футері */
+.footer__contacts {
+    font-style: normal;
+}
+
+.footer a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Планшет і мобільні */
+@media (max-width: 900px) {
+    .booking__layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .booking {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .booking__intro {
+        margin-bottom: 28px;
+    }
+
+    .booking-form {
+        padding: 20px;
+    }
+
+    .booking-form__row {
+        grid-template-columns: 1fr;
+    }
+}

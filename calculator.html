@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Розрахуйте орієнтовну вартість відпочинку в Green Hill: котедж, дати, гості та додаткові послуги.">
+    <title>Розрахувати вартість — Green Hill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="calculator.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false,
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#23412E",
+                        "primary-light": "#3E6549",
+                        accent: "#E8DFD0",
+                        background: "#FFFFFF",
+                        text: "#26352B",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html" aria-label="Green Hill — на головну">
+            <img src="images/logo.svg" alt="">
+            <span>Green Hill</span>
+        </a>
+
+        <nav class="navigation" aria-label="Головна навігація">
+            <ul>
+                <li><a href="index.html#home">Головна</a></li>
+                <li><a href="index.html#about">Про нас</a></li>
+                <li><a href="index.html#cottages">Котеджі</a></li>
+                <li><a href="calculator.html" aria-current="page">Розрахувати вартість</a></li>
+                <li><a href="index.html#gallery">Галерея</a></li>
+                <li><a href="index.html#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+
+<a class="button header__button" href="booking.html">
+    <i class="fas fa-calendar-check icon" aria-hidden="true"></i>
+    Забронювати
+</a>
+    </header>
+
+    <main>
+        <section class="calc-hero" aria-labelledby="calc-title">
+            <h1 id="calc-title">Розрахуйте вартість відпочинку</h1>
+            <p>Оберіть котедж, дати проживання, кількість гостей та додаткові послуги — і дізнайтеся орієнтовну
+                вартість вашого відпочинку в Green Hill.</p>
+        </section>
+
+        <section class="calc" aria-label="Калькулятор вартості">
+            <form class="calc__form" id="calculator-form" novalidate>
+
+                <fieldset class="calc-group">
+                    <legend>1. Оберіть котедж</legend>
+                    <div class="choice-grid choice-grid--cottages">
+                        <label class="choice-card">
+                            <input class="visually-hidden" type="radio" name="cottage" value="Котедж 1">
+                            <article class="choice-card__body">
+                                <div class="choice-card__media">
+                                    <img src="images/cottage-1.jpg" alt="Затишний котедж серед Карпатських гір">
+                                </div>
+                                <div class="choice-card__text">
+                                    <h3>Котедж 1</h3>
+                                    <p>Затишний котедж для відпочинку серед природи Карпат.</p>
+                                </div>
+                            </article>
+                        </label>
+
+                        <label class="choice-card">
+                            <input class="visually-hidden" type="radio" name="cottage" value="Котедж 2">
+                            <article class="choice-card__body">
+                                <div class="choice-card__media">
+                                    <img src="images/cottage-2.jpg" alt="Сучасний котедж для відпочинку в Карпатах">
+                                </div>
+                                <div class="choice-card__text">
+                                    <h3>Котедж 2</h3>
+                                    <p>Комфортний котедж для спокійного сімейного відпочинку.</p>
+                                </div>
+                            </article>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="calc-group">
+                    <legend>2. Дати проживання</legend>
+                    <div class="calc-row">
+                        <div class="form-field">
+                            <label for="checkin">Дата заїзду</label>
+                            <input type="date" id="checkin" name="checkin">
+                        </div>
+                        <div class="form-field">
+                            <label for="checkout">Дата виїзду</label>
+                            <input type="date" id="checkout" name="checkout">
+                        </div>
+                    </div>
+                    <p class="calc-message">Оберіть дату заїзду та дату виїзду.</p>
+                </fieldset>
+
+                <fieldset class="calc-group">
+                    <legend>3. Кількість гостей</legend>
+                    <div class="form-field calc-guests">
+                        <label for="guests">Кількість гостей</label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" step="1" value="2"
+                            inputmode="numeric" aria-describedby="guests-hint">
+                    </div>
+                    <p class="calc-hint" id="guests-hint">Базова ціна розрахована для 2 гостей. Кожне додаткове місце —
+                        500 грн.</p>
+                </fieldset>
+
+                <fieldset class="calc-group">
+                    <legend>4. Додаткові послуги</legend>
+                    <div class="choice-grid choice-grid--services">
+                        <label class="choice-card">
+                            <input class="visually-hidden" type="checkbox" name="service" value="pet"
+                                data-label="Домашній улюбленець">
+                            <article class="choice-card__body">
+                                <div class="choice-card__media choice-card__media--small">
+                                    <img src="images/pet.jpg" alt="Домашній улюбленець на відпочинку">
+                                </div>
+                                <div class="choice-card__text">
+                                    <h3>Домашній улюбленець</h3>
+                                    <p class="choice-card__price">300 грн</p>
+                                    <p>Можна приїхати разом із домашнім улюбленцем.</p>
+                                </div>
+                            </article>
+                        </label>
+
+                        <label class="choice-card">
+                            <input class="visually-hidden" type="checkbox" name="service" value="chan"
+                                data-label="Чан">
+                            <article class="choice-card__body">
+                                <div class="choice-card__media choice-card__media--small">
+                                    <img src="images/chan.jpg" alt="Чан просто неба">
+                                </div>
+                                <div class="choice-card__text">
+                                    <h3>Чан</h3>
+                                    <p class="choice-card__price">2 000 грн</p>
+                                    <p>Відпочинок у гарячому чані просто неба.</p>
+                                </div>
+                            </article>
+                        </label>
+
+                        <label class="choice-card">
+                            <input class="visually-hidden" type="checkbox" name="service" value="sauna"
+                                data-label="Баня на дровах">
+                            <article class="choice-card__body">
+                                <div class="choice-card__media choice-card__media--small">
+                                    <img src="images/sauna.jpg" alt="Баня на дровах">
+                                </div>
+                                <div class="choice-card__text">
+                                    <h3>Баня на дровах</h3>
+                                    <p class="choice-card__price">2 000 грн</p>
+                                    <p>Традиційна баня, що топиться дровами.</p>
+                                </div>
+                            </article>
+                        </label>
+                    </div>
+                </fieldset>
+            </form>
+
+            <aside class="calc-summary" aria-labelledby="summary-title">
+                <h2 id="summary-title">Ваш розрахунок</h2>
+
+                <div>
+                    <p class="calc-summary__empty">Оберіть дати та параметри відпочинку, щоб
+                        побачити вартість.</p>
+
+                    <dl class="calc-summary__list">
+                        <div>
+                            <dt>Котедж</dt>
+                            <dd>—</dd>
+                        </div>
+                        <div>
+                            <dt>Кількість ночей</dt>
+                            <dd><span>—</span></dd>
+                        </div>
+                        <div>
+                            <dt>Гості</dt>
+                            <dd>—</dd>
+                        </div>
+                        <div>
+                            <dt>Проживання</dt>
+                            <dd>—</dd>
+                        </div>
+                        <div>
+                            <dt>Додаткові гості</dt>
+                            <dd>—</dd>
+                        </div>
+                        <div>
+                            <dt>Додаткові послуги</dt>
+                            <dd><span>—</span></dd>
+                        </div>
+                        <div class="calc-summary__total">
+                            <dt>Разом</dt>
+                            <dd>—</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <p class="calc-summary__note">Розрахунок орієнтовний. Остаточні деталі підтверджуються під час
+                    бронювання.</p>
+                <a class="button calc-summary__button" href="booking.html">Забронювати</a>
+            </aside>
+        </section>
+
+        <section class="pricing" aria-labelledby="pricing-title">
+            <h2 id="pricing-title">Вартість проживання</h2>
+
+            <div class="pricing__list">
+                <article class="pricing__card">
+                    <h3>Проживання</h3>
+                    <dl>
+                        <div>
+                            <dt>Будні</dt>
+                            <dd>3 800 грн / доба</dd>
+                        </div>
+                        <div>
+                            <dt>Вихідні</dt>
+                            <dd>4 000 грн / доба</dd>
+                        </div>
+                    </dl>
+                    <p>Ціна вказана за добу для 2 гостей.</p>
+                </article>
+
+                <article class="pricing__card">
+                    <h3>Додатково</h3>
+                    <dl>
+                        <div>
+                            <dt>Додаткове місце</dt>
+                            <dd>500 грн</dd>
+                        </div>
+                        <div>
+                            <dt>Домашній улюбленець</dt>
+                            <dd>300 грн</dd>
+                        </div>
+                        <div>
+                            <dt>Чан</dt>
+                            <dd>2 000 грн</dd>
+                        </div>
+                        <div>
+                            <dt>Баня на дровах</dt>
+                            <dd>2 000 грн</dd>
+                        </div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+        <a class="button" href="index.html">← Повернутися на головну</a>
+    </main>
+
+    <footer class="footer" id="contacts">
+        <p><strong>Green Hill — відпочинок у Карпатах</strong></p>
+        <address class="footer__contacts">
+            <p>Адреса: вул. Тараса Шевченка, Гребенів, Львівська область, 82634</p>
+            <p>Телефон: <a href="tel:+380979359423">097 935 94 23</a></p>
+            <p>Instagram:
+                <a href="https://www.instagram.com/greenhill_cottage_/" target="_blank"
+                    rel="noopener noreferrer">@greenhill_cottage_</a>
+            </p>
+        </address>
+        <p>© 2026 Green Hill. Усі права захищені.</p>
+    </footer>
+
+</body>
+
+</html>

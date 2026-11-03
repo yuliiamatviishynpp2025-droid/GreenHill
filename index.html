@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Green Hill — затишні котеджі для відпочинку в Карпатах.">
+    <title>Green Hill — відпочинок у Карпатах</title>
+    <link rel="preload" as="image" href="images/hero_bg.jpg" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false,
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#23412E",
+                        "primary-light": "#3E6549",
+                        accent: "#E8DFD0",
+                        background: "#FFFFFF",
+                        text: "#26352B",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="#home" aria-label="Green Hill — на головну">
+    <img src="images/logo.svg" alt="">
+    <span>Green Hill</span>
+</a>
+        <nav class="navigation" aria-label="Головна навігація">
+    <ul>
+        <li><a href="#home">Головна</a></li>
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#cottages">Котеджі</a></li>
+        <li><a href="calculator.html">Розрахувати вартість</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+</nav>
+
+        <a class="button header__button" href="booking.html">
+            <i class="fas fa-calendar-check icon" aria-hidden="true"></i>
+            Забронювати
+        </a>
+
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <video class="hero__video" autoplay muted playsinline poster="images/hero_bg.jpg" aria-hidden="true" tabindex="-1">
+                <source src="images/gemini_generated_video_438d94c3.mp4" type="video/mp4">
+            </video>
+            <script>
+                (() => {
+                    const video = document.querySelector(".hero__video");
+                    const hero = video.closest(".hero");
+                    const showStaticPoster = () => {
+                        video.pause();
+                        hero.classList.add("hero--video-fallback");
+                    };
+
+                    video.addEventListener("ended", () => video.pause(), { once: true });
+                    video.addEventListener("error", showStaticPoster, { once: true });
+
+                    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                        video.removeAttribute("autoplay");
+                        showStaticPoster();
+                    } else {
+                        const startPlayback = () => {
+                            video.currentTime = 0;
+                            video.play().catch(showStaticPoster);
+                        };
+
+                        if (video.readyState >= 1) {
+                            startPlayback();
+                        } else {
+                            video.addEventListener("loadedmetadata", startPlayback, { once: true });
+                        }
+
+                        window.addEventListener("pageshow", (event) => {
+                            if (!event.persisted) {
+                                return;
+                            }
+
+                            hero.classList.remove("hero--video-fallback");
+                            if (video.readyState >= 1) {
+                                startPlayback();
+                            } else {
+                                video.addEventListener("loadedmetadata", startPlayback, { once: true });
+                            }
+                        });
+                    }
+                })();
+            </script>
+            <div class="hero__content">
+                <p class="hero__subtitle">Відпочинок серед Карпатських гір</p>
+                <h1>Відкрий для себе Green Hill</h1>
+                <p>Затишні котеджі, свіже гірське повітря та відпочинок на природі.</p>
+                <a class="button" href="#cottages">Обрати котедж</a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>Відпочинок, який надихає</h2>
+            <p class="about__description">Свіже гірське повітря, затишок серед Карпат і час, щоб побути разом або наодинці з природою.
+            </p>
+            <div class="about__features">
+                <article class="about__card">
+                    <i class="fa-solid fa-mountain-sun about__icon" aria-hidden="true"></i>
+                    <h3>Карпатська природа</h3>
+                    <p>Насолоджуйтеся гірськими краєвидами та свіжим повітрям.</p>
+                </article>
+                <article class="about__card">
+                    <i class="fa-solid fa-house about__icon" aria-hidden="true"></i>
+                    <h3>Затишні котеджі</h3>
+                    <p>Проведіть час у затишку серед Карпат разом із близькими.</p>
+                </article>
+                <article class="about__card">
+                    <i class="fa-solid fa-leaf about__icon" aria-hidden="true"></i>
+                    <h3>Час для себе</h3>
+                    <p>Сповільніться, відпочиньте та побудьте ближче до природи.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cottages" id="cottages">
+            <h2>Наші котеджі</h2>
+            <p>Оберіть затишне місце для своєї наступної подорожі в гори.</p>
+
+            <div class="cottages__list">
+                <article class="cottage-card">
+                    <img src="images/cottage-1.jpg" alt="Затишний котедж серед Карпатських гір">
+                    <div class="cottage-card__content">
+                        <h3>Котедж 1</h3>
+                        <p>Для 2–4 гостей. Є кухня для приготування їжі; на території — мангал і паркування.</p>
+                        <a class="button" href="#availability">Перевірити доступність</a>
+                    </div>
+                </article>
+
+                <article class="cottage-card">
+                    <img src="images/cottage-2.jpg" alt="Сучасний котедж для відпочинку в Карпатах">
+                    <div class="cottage-card__content">
+                        <h3>Котедж 2</h3>
+                        <p>Для 2–4 гостей. Є кухня для приготування їжі; на території — мангал і паркування.</p>
+                        <a class="button" href="#availability">Перевірити доступність</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="availability" id="availability">
+            <h2>Перевірити доступність</h2>
+
+            <form class="availability__form" action="#" method="get">
+                <div class="form-field">
+                    <label for="checkin">Дата заїзду</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="checkout">Дата виїзду</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="guests">Кількість гостей</label>
+                    <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+                </div>
+
+                <button class="button" type="submit">Перевірити доступність</button>
+            </form>
+        </section>
+        <section class="experience" id="experience">
+            <h2>Миті відпочинку</h2>
+
+            <div class="experience__list">
+                <article class="experience-card">
+                    <img src="images/nature.jpg" alt="Зелена природа Карпат і гірські краєвиди">
+                    <h3>Карпатські краєвиди</h3>
+                </article>
+
+                <article class="experience-card">
+                    <img src="images/interior.jpg" alt="Затишний інтер'єр котеджу">
+                    <h3>Інтер’єр котеджу</h3>
+                </article>
+
+                <article class="experience-card">
+                    <img src="images/family.jpg" alt="Відпочинок для всієї родини">
+                    <h3>Моменти разом</h3>
+                </article>
+            </div>
+        </section>
+        
+<section class="location" id="location">
+    <h2>Локація <i class="fa-solid fa-location-dot icon" aria-hidden="true"></i></h2>
+
+    <div class="location__content">
+       
+<figure class="location__map">
+    <iframe
+        src="https://www.openstreetmap.org/export/embed?bbox=23.446540832519535%2C48.96810405618617%2C23.486709594726562%2C48.98883509140383&amp;layer=mapnik"
+        title="Інтерактивна карта розташування Green Hill"
+        loading="lazy"
+        allowfullscreen
+    ></iframe>
+    <figcaption>
+        <a
+            href="https://www.openstreetmap.org/#map=15/48.97847/23.46663"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Переглянути більшу мапу
+        </a>
+    </figcaption>
+</figure>
+
+
+        <div class="location__info">
+            <h3>Як дістатися до Green Hill?</h3>
+
+            <p>
+                Green Hill розташований у селі Гребенів Львівської області,
+                у мальовничій частині Карпат. Точне розташування комплексу
+                можна переглянути на карті та використати для побудови маршруту.
+            </p>
+
+            <p>
+                вул. Тараса Шевченка, Гребенів, Львівська область, 82634
+            </p>
+
+            <section class="weather-widget" aria-labelledby="weather-title" data-weather-widget>
+                <h4 id="weather-title">Погода в Гребенові</h4>
+                <p class="weather-widget__status" data-weather-status role="status" aria-live="polite">
+                    Завантажуємо актуальні дані погоди…
+                </p>
+                <dl class="weather-widget__details" data-weather-details hidden>
+                    <div>
+                        <dt>Зараз</dt>
+                        <dd data-weather-temperature></dd>
+                    </div>
+                    <div>
+                        <dt>Відчувається як</dt>
+                        <dd data-weather-apparent></dd>
+                    </div>
+                    <div>
+                        <dt>Вітер</dt>
+                        <dd data-weather-wind></dd>
+                    </div>
+                    <div class="weather-widget__condition">
+                        <dt>Умови</dt>
+                        <dd data-weather-condition></dd>
+                    </div>
+                </dl>
+                <a
+                    class="weather-widget__source"
+                    href="https://open-meteo.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Джерело даних: Open-Meteo
+                </a>
+            </section>
+
+            <a
+                class="button"
+                href="https://www.google.com/maps/search/?api=1&query=вул.+Тараса+Шевченка,+Гребенів,+Львівська+область,+82634"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Прокласти маршрут
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    (() => {
+        const widget = document.querySelector("[data-weather-widget]");
+        const status = widget.querySelector("[data-weather-status]");
+        const details = widget.querySelector("[data-weather-details]");
+        const weatherDescriptions = new Map([
+            [0, "Ясно"],
+            [1, "Переважно ясно"],
+            [2, "Мінлива хмарність"],
+            [3, "Хмарно"],
+            [45, "Туман"],
+            [48, "Паморозьовий туман"],
+            [51, "Легка мряка"],
+            [53, "Помірна мряка"],
+            [55, "Сильна мряка"],
+            [56, "Легка крижана мряка"],
+            [57, "Сильна крижана мряка"],
+            [61, "Невеликий дощ"],
+            [63, "Помірний дощ"],
+            [65, "Сильний дощ"],
+            [66, "Невеликий крижаний дощ"],
+            [67, "Сильний крижаний дощ"],
+            [71, "Невеликий сніг"],
+            [73, "Помірний сніг"],
+            [75, "Сильний сніг"],
+            [77, "Снігові зерна"],
+            [80, "Невеликий дощ із проясненнями"],
+            [81, "Помірні дощові зливи"],
+            [82, "Сильні дощові зливи"],
+            [85, "Невеликий сніг із проясненнями"],
+            [86, "Сильні снігові зливи"],
+            [95, "Гроза"],
+            [96, "Гроза з невеликим градом"],
+            [99, "Гроза із сильним градом"]
+        ]);
+        const formatTemperature = (value) => `${Math.round(value)} °C`;
+        const formatWind = (value) => `${Math.round(value)} км/год`;
+
+        const loadWeather = async () => {
+            const params = new URLSearchParams({
+                latitude: "48.97847",
+                longitude: "23.46663",
+                current: "temperature_2m,apparent_temperature,wind_speed_10m,weather_code",
+                timezone: "Europe/Kyiv"
+            });
+
+            try {
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
+                if (!response.ok) {
+                    throw new Error(`Open-Meteo повернув HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                const current = data.current;
+                if (!current) {
+                    throw new Error("Open-Meteo не повернув поточні погодні дані");
+                }
+
+                const condition = weatherDescriptions.get(current.weather_code);
+                const values = [
+                    current.temperature_2m,
+                    current.apparent_temperature,
+                    current.wind_speed_10m,
+                    current.weather_code
+                ];
+
+                if (
+                    values.some((value) => !Number.isFinite(value)) ||
+                    !Number.isInteger(current.weather_code) ||
+                    !condition
+                ) {
+                    throw new Error("Open-Meteo повернув неповні або невідомі погодні дані");
+                }
+
+                widget.querySelector("[data-weather-temperature]").textContent =
+                    formatTemperature(current.temperature_2m);
+                widget.querySelector("[data-weather-apparent]").textContent =
+                    formatTemperature(current.apparent_temperature);
+                widget.querySelector("[data-weather-wind]").textContent =
+                    formatWind(current.wind_speed_10m);
+                widget.querySelector("[data-weather-condition]").textContent = condition;
+                details.hidden = false;
+                status.hidden = true;
+            } catch (error) {
+                console.error("Не вдалося завантажити погоду Open-Meteo:", error);
+                status.textContent = "Не вдалося завантажити погоду. Спробуйте пізніше.";
+            }
+        };
+
+        loadWeather();
+    })();
+</script>
+
+
+<section class="gallery" id="gallery">
+    <p class="gallery__eyebrow">АТМОСФЕРА GREEN HILL</p>
+    <h2>
+        Моменти, які хочеться зберегти
+        <i class="fa-regular fa-image gallery__title-icon" aria-hidden="true"></i>
+    </h2>
+    <p class="gallery__intro">Природа, затишок і відпочинок у кожній деталі</p>
+
+    <div class="gallery__list" id="gallery-photos">
+        <figure class="gallery__item gallery__item--featured">
+            <img src="images/gal1.webp" alt="Карпатський краєвид із тераси котеджу">
+            <figcaption>Тераса з краєвидом</figcaption>
+            <span class="gallery__arrow" aria-hidden="true">→</span>
+        </figure>
+
+        <figure class="gallery__item">
+            <img src="images/gal2.webp" alt="Басейн на території Green Hill серед Карпат">
+            <figcaption>Відпочинок біля басейну</figcaption>
+            <span class="gallery__arrow" aria-hidden="true">→</span>
+        </figure>
+
+        <figure class="gallery__item">
+            <img src="images/gal3.jpg" alt="Затишна зона відпочинку з краєвидом на природу">
+            <figcaption>Затишок у деталях</figcaption>
+            <span class="gallery__arrow" aria-hidden="true">→</span>
+        </figure>
+
+        <figure class="gallery__item">
+            <img src="images/gal4.jpg" alt="Гості відпочивають біля котеджу взимку">
+            <figcaption>Атмосфера кожного сезону</figcaption>
+            <span class="gallery__arrow" aria-hidden="true">→</span>
+        </figure>
+    </div>
+    <a class="gallery__link" href="#gallery-photos">
+        Переглянути всі фото
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </a>
+</section>
+
+<section class="reviews" id="reviews">
+    <h2>
+        Відгуки гостей
+        <i class="fa-regular fa-message icon" aria-hidden="true"></i>
+    </h2>
+
+    <div class="reviews__list">
+
+        <article class="review-card">
+            <img
+                class="review-card__image"
+                src="images/gal4.jpg"
+                alt="Гості біля котеджу Green Hill взимку"
+            >
+
+            <div class="review-card__content">
+                <div class="review-card__rating">★★★★★</div>
+
+                <h3>Реальний відгук гостя</h3>
+
+                <p>
+                    «Добрий вечір 😊 Хотіла подякувати за відпочинок у Вас!
+                    Територія неймовірна, комфортні і теплі будиночки,
+                    є все необхідне. Якраз для відпочинку від міської
+                    метушні! Баня то взагалі кайф 🔥 Окрема подяка дуже
+                    гостинним господарям 💗»
+                </p>
+
+                <span class="review-card__source">
+                    Реальний відгук • Instagram
+                </span>
+            </div>
+        </article>
+
+
+        <article class="review-card">
+            <img
+                class="review-card__image"
+                src="images/review-2.jpg"
+                alt="Відпочинок у чані Green Hill біля річки"
+            >
+
+            <div class="review-card__content">
+                <div class="review-card__rating">★★★★★</div>
+
+                <h3>Реальний відгук гостя</h3>
+
+                <p>
+                    «Все було просто чудово! Господарка дуже хороша людина,
+                    розуміюча і ввічлива. Неймовірна природа і місцерозташування,
+                    охайна територія і будинок з усіма зручностями.
+                    За сауну та чан особлива подяка та рекомендація.
+                    Обов’язково повернемося ще не раз, дякуємо!»
+                </p>
+
+                <span class="review-card__source">
+                    Реальний відгук • Instagram
+                </span>
+            </div>
+        </article>
+
+
+        <article class="review-card">
+            <img
+                class="review-card__image"
+                src="images/review-3.jpg"
+                alt="Котедж Green Hill на фоні Карпатських гір"
+            >
+
+            <div class="review-card__content">
+                <div class="review-card__rating">★★★★★</div>
+
+                <h3>Реальний відгук гостя</h3>
+
+                <p>
+                    «Добрий вечір! Хотіла подякувати Вам за неймовірний
+                    відпочинок. Все було дуже чудово. А особливо зачаровує
+                    чан з видом на річку. Обов’язково повернемося ще!
+                    Дякуємо!!!»
+                </p>
+
+                <span class="review-card__source">
+                    Реальний відгук • Instagram
+                </span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+        <section class="about-details" id="about-details">
+    <h2>Про Green Hill</h2>
+
+    <div class="about-details__list">
+
+        <article class="about-details__card">
+            <h3>Коротко про Green Hill</h3>
+
+            <p>
+                <strong>Green Hill</strong> — це затишний сімейний комплекс
+                котеджів у Карпатах, створений для тих, хто хоче змінити
+                міський ритм на тишу, природу та справжній відпочинок.
+            </p>
+
+            <p>
+                Тут поєднуються комфортне проживання, мальовничі карпатські
+                краєвиди та спокійна атмосфера, що допомагає відпочити від
+                щоденної метушні.
+            </p>
+
+            <p>
+                Ми прагнемо створити місце, де можна провести якісний час
+                із родиною та близькими, насолодитися природою, відпочити
+                від поспіху й просто побути разом.
+            </p>
+
+            <img class="about-details__image" src="images/p_proGH.jpg" alt="Котедж Green Hill серед Карпатських гір">
+        </article>
+
+        <article class="about-details__card">
+            <h3>Наші переваги</h3>
+
+            <p>
+                <strong>Природа Карпат</strong><br>
+                Мальовниче розташування серед гір, лісів і чистого
+                карпатського повітря допомагає відпочити від міського шуму.
+            </p>
+
+            <p>
+                <strong>Затишні котеджі</strong><br>
+                Комфортний простір і приватність створюють умови для
+                спокійного проживання та приємного відпочинку.
+            </p>
+
+            <p>
+                <strong>Сімейна атмосфера</strong><br>
+                Green Hill підходить для відпочинку з родиною та близькими,
+                де можна якісно провести час разом.
+            </p>
+
+            <p>
+                <strong>Зручна локація</strong><br>
+                Комплекс розташований у Гребеневі, Львівська область,
+                серед мальовничої карпатської природи.
+            </p>
+
+            <p>
+                <strong>Відпочинок без зайвої метушні</strong><br>
+                Місце, де можна сповільнитися, відкласти повсякденні справи
+                та присвятити час собі, природі й людям, які поруч.
+            </p>
+        </article>
+
+    </div>
+</section>
+        <section class="faq" id="faq">
+            <p class="faq__eyebrow">МИ ПОДБАЛИ ПРО ДЕТАЛІ</p>
+            <h2>Часті запитання</h2>
+            <p class="faq__intro">Усе, що варто знати перед відпочинком у Green Hill</p>
+
+            <div class="faq__list">
+                <article class="faq-item">
+                    <h3 class="faq-item__heading">
+                        <button class="faq-item__trigger" id="faq-question-1" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+                            <span class="faq-item__number" aria-hidden="true">01</span>
+                            <span class="faq-item__question">Як забронювати котедж?</span>
+                            <span class="faq-item__icon" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="faq-item__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" aria-hidden="true" inert>
+                        <div class="faq-item__answer-inner">
+                            <p>Оберіть котедж, вкажіть дати заїзду та виїзду й зв'яжіться з нами для уточнення бронювання.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <h3 class="faq-item__heading">
+                        <button class="faq-item__trigger" id="faq-question-2" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+                            <span class="faq-item__number" aria-hidden="true">02</span>
+                            <span class="faq-item__question">Як перевірити доступність на потрібні дати?</span>
+                            <span class="faq-item__icon" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="faq-item__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" aria-hidden="true" inert>
+                        <div class="faq-item__answer-inner">
+                            <p>Скористайтеся формою перевірки доступності на сайті та вкажіть дати й кількість гостей.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <h3 class="faq-item__heading">
+                        <button class="faq-item__trigger" id="faq-question-3" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+                            <span class="faq-item__number" aria-hidden="true">03</span>
+                            <span class="faq-item__question">Що входить у вартість проживання?</span>
+                            <span class="faq-item__icon" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="faq-item__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" aria-hidden="true" inert>
+                        <div class="faq-item__answer-inner">
+                            <p>Умови проживання та перелік послуг уточнюються під час бронювання.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <h3 class="faq-item__heading">
+                        <button class="faq-item__trigger" id="faq-question-4" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+                            <span class="faq-item__number" aria-hidden="true">04</span>
+                            <span class="faq-item__question">Як дістатися до Green Hill?</span>
+                            <span class="faq-item__icon" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="faq-item__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" aria-hidden="true" inert>
+                        <div class="faq-item__answer-inner">
+                            <p>Комплекс розташований у Карпатах. Точний маршрут можна переглянути в секції «Локація».</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="faq__contact">
+                <div>
+                    <h3>Залишилися запитання?</h3>
+                    <p>Напишіть або зателефонуйте нам — контакти на цій сторінці.</p>
+                </div>
+                <a class="button" href="#contacts">Зв’язатися з нами</a>
+            </aside>
+        </section>
+        <script>
+            document.querySelectorAll(".faq-item__trigger").forEach((trigger) => {
+                trigger.addEventListener("click", () => {
+                    const answer = document.getElementById(trigger.getAttribute("aria-controls"));
+                    const expanded = trigger.getAttribute("aria-expanded") === "true";
+
+                    trigger.setAttribute("aria-expanded", String(!expanded));
+                    answer.setAttribute("aria-hidden", String(expanded));
+                    answer.inert = expanded;
+                });
+            });
+        </script>
+        <section class="advantages" id="advantages">
+            <h2>Відпочинок у своєму ритмі</h2>
+
+            <div class="advantages__list">
+                <article class="advantage-card">
+                    <h3>Гірське оточення</h3>
+                    <p>Green Hill розташований у Гребеневі, серед Карпатських гір.</p>
+                </article>
+
+                <article class="advantage-card">
+                    <h3>Час із близькими</h3>
+                    <p>Можна провести час із родиною та друзями в затишку котеджу.</p>
+                </article>
+
+                <article class="advantage-card">
+                    <h3>Перепочинок від метушні</h3>
+                    <p>Місце, щоб сповільнитися й присвятити час собі та природі.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+    <h2>Контакти Green Hill</h2>
+
+    <p> вул. Тараса Шевченка, Гребенів, Львівська область, 82634</p>
+
+    <p>
+         Телефон:
+        <a href="tel:+380979359423">097 935 94 23</a>
+    </p>
+
+    <p>
+         Instagram:
+        <a href="https://www.instagram.com/greenhill_cottage_?srtk=MW9zMzB3ZjdqenVneQ==" target="_blank" rel="noopener noreferrer">
+            @greenhill_cottage_
+        </a>
+    </p>
+
+    <p>Green Hill — відпочинок у Карпатах</p>
+    <p>© 2026 Green Hill. Усі права захищені.</p>
+</footer>
+</body>
+
+</html>
