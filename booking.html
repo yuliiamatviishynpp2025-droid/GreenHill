@@ -134,6 +134,183 @@
                 </aside>
             </div>
 
+           
+            
+<!-- Форма зворотного зв'язку -->
+<section
+    class="feedback mx-auto mt-16 w-full max-w-3xl rounded-2xl border border-accent bg-white p-5 shadow-sm sm:p-8"
+    aria-labelledby="feedback-title">
+
+    <div class="feedback__intro mb-8 text-center">
+        <h2 id="feedback-title"
+            class="mb-3 text-2xl font-bold text-primary sm:text-3xl">
+            Маєте запитання?
+        </h2>
+
+        <p class="text-base text-text sm:text-lg">
+            Напишіть нам, і ми з радістю допоможемо
+            організувати ваш відпочинок у Green Hill.
+        </p>
+    </div>
+
+    <form id="feedbackForm"
+        class="feedback-form grid grid-cols-1 gap-6 md:grid-cols-2"
+        action="#"
+        method="post"
+        novalidate>
+
+        <p class="feedback-form__note text-sm text-primary-light md:col-span-2">
+            Усі поля обов'язкові для заповнення.
+        </p>
+
+        <!-- Ім'я -->
+        <div class="form-field">
+            <label for="feedback-name"
+                class="mb-2 block text-sm font-semibold text-text">
+                Ваше ім'я
+            </label>
+
+            <input type="text"
+                id="feedback-name"
+                name="feedbackName"
+                autocomplete="name"
+                minlength="2"
+                required
+                aria-describedby="nameError"
+                class="!w-full !min-h-12 !rounded-lg !border !border-accent !px-4 !py-3 focus-visible:!outline-2 focus-visible:!outline-primary transition">
+            
+            <p id="nameError"
+                class="feedback-form__error hidden text-sm text-red-600"
+                aria-live="polite"></p>
+        </div>
+
+        <!-- Email -->
+        <div class="form-field">
+            <label for="feedback-email"
+                class="mb-2 block text-sm font-semibold text-text">
+                Електронна пошта
+            </label>
+
+            <input type="email"
+                id="feedback-email"
+                name="feedbackEmail"
+                autocomplete="email"
+                required
+                aria-describedby="emailError"
+                class="!w-full !min-h-12 !rounded-lg !border !border-accent !px-4 !py-3 focus-visible:!outline-2 focus-visible:!outline-primary transition">
+
+            <p id="emailError"
+                class="feedback-form__error hidden text-sm text-red-600"
+                aria-live="polite"></p>
+        </div>
+
+        <!-- Телефон -->
+        <div class="form-field md:col-span-2">
+            <label for="feedback-phone"
+                class="mb-2 block text-sm font-semibold text-text">
+                Номер телефону
+            </label>
+
+            <input type="tel"
+                id="feedback-phone"
+                name="feedbackPhone"
+                placeholder="+380XXXXXXXXX"
+                autocomplete="tel"
+                required
+                aria-describedby="phoneError"
+                class="!w-full !min-h-12 !rounded-lg !border !border-accent !px-4 !py-3 focus-visible:!outline-2 focus-visible:!outline-primary transition">
+
+            <p id="phoneError"
+                class="feedback-form__error hidden text-sm text-red-600"
+                aria-live="polite"></p>
+        </div>
+
+        <!-- Повідомлення -->
+        <div class="form-field md:col-span-2">
+            <label for="feedback-message"
+                class="mb-2 block text-sm font-semibold text-text">
+                Ваше повідомлення
+            </label>
+
+            <textarea id="feedback-message"
+                name="feedbackMessage"
+                rows="5"
+                minlength="10"
+                required
+                aria-describedby="messageError"
+                class="!w-full !rounded-lg !border !border-accent !px-4 !py-3 focus-visible:!outline-2 focus-visible:!outline-primary transition"></textarea>
+
+            <p id="messageError"
+                class="feedback-form__error hidden text-sm text-red-600"
+                aria-live="polite"></p>
+        </div>
+
+        <!-- Згода -->
+        <div class="feedback-form__agreement md:col-span-2">
+            <div class="flex items-start gap-3">
+                <input type="checkbox"
+                    id="feedback-consent"
+                    name="feedbackConsent"
+                    required
+                    aria-describedby="consentError"
+                    class="mt-1 !h-4 !w-4 accent-primary">
+
+                <label for="feedback-consent"
+                    class="text-sm text-text">
+                    Погоджуюся з політикою конфіденційності
+                </label>
+            </div>
+
+            <p id="consentError"
+                class="feedback-form__error hidden text-sm text-red-600"
+                aria-live="polite"></p>
+        </div>
+
+        <!-- Кнопка -->
+        <button type="submit"
+            class="button feedback-form__submit min-h-12 w-full rounded-lg bg-primary px-6 py-3 font-semibold text-white transition duration-300 hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:col-span-2">
+            Надіслати повідомлення
+        </button>
+
+    </form>
+    
+<!-- Модальне вікно успішного надсилання -->
+<div id="successModal"
+    class="feedback-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="successTitle"
+    aria-describedby="successDescription"
+    aria-hidden="true"
+    hidden>
+
+    <div class="feedback-modal__content">
+
+        <div class="feedback-modal__icon">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+        </div>
+
+        <h2 id="successTitle">
+            Дякуємо за повідомлення!
+        </h2>
+
+        <p id="successDescription">
+            Ваші дані успішно перевірено.
+            Команда Green Hill вдячна за звернення!
+        </p>
+
+        <button type="button"
+            id="closeSuccessModal"
+            class="button feedback-modal__button">
+            Чудово!
+        </button>
+
+    </div>
+</div>
+
+</section>
+
+
             <p class="booking__back">
                 <a href="index.html">← Повернутися на головну</a>
             </p>
@@ -151,7 +328,9 @@
             </p>
         </address>
         <p>© 2026 Green Hill. Усі права захищені.</p>
-    </footer>
-</body>
+        </footer>
 
+    <!-- JavaScript для валідації форми -->
+    <script src="js/validation.js"></script>
+</body>
 </html>
