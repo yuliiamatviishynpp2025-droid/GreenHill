@@ -407,3 +407,114 @@ main > .button {
     width: fit-content;
     margin: 40px auto;
 }
+
+
+/* ===== Калькулятор — темна тема Green Hill ===== */
+
+body.dark-theme .calc-hero {
+    background: #24382A;
+}
+
+body.dark-theme .calc-hero h1,
+body.dark-theme .calc-hero p {
+    color: #E5EDE6;
+}
+
+body.dark-theme .calc-group {
+    background: #243329;
+    border-color: #536858;
+}
+
+body.dark-theme .calc-group legend {
+    color: #C2D9C6;
+}
+
+body.dark-theme .calc-hint,
+body.dark-theme .calc-message {
+    color: #D5E1D7;
+}
+
+body.dark-theme .choice-card__body {
+    background: #293D30;
+    border-color: #536858;
+}
+
+body.dark-theme .choice-card__text h3,
+body.dark-theme .choice-card__text p,
+body.dark-theme .choice-card__price {
+    color: #E5EDE6;
+}
+
+body.dark-theme .choice-card__body::after {
+    background-color: #405A47;
+    border-color: #A8C5AE;
+}
+
+body.dark-theme .choice-card input:checked + .choice-card__body {
+    background: #354D3B;
+    border-color: #A8C5AE;
+}
+
+body.dark-theme .calc-summary,
+body.dark-theme .pricing__card {
+    background: #293D30;
+    color: #E5EDE6;
+}
+
+body.dark-theme .calc-summary h2,
+body.dark-theme .pricing__card h3,
+body.dark-theme .pricing h2 {
+    color: #C2D9C6;
+}
+
+body.dark-theme .calc-summary__empty,
+body.dark-theme .calc-summary__list {
+    background: #1C2C21;
+    color: #E5EDE6;
+}
+
+body.dark-theme .calc-summary__list small {
+    color: #A8C5AE;
+}
+
+body.dark-theme .calc-summary__total {
+    color: #C2D9C6;
+    border-color: #536858;
+}
+
+body.dark-theme .pricing__card dl > div {
+    border-color: rgba(197, 217, 198, 0.2);
+}
+
+body.dark-theme .pricing__card p {
+    color: #D5E1D7;
+}
+
+body.dark-theme .calc input,
+body.dark-theme .calc select {
+    background-color: #1C2C21;
+    color: #E5EDE6;
+    border-color: #536858;
+}
+
+body.dark-theme .calc input::placeholder {
+    color: #A8B9AA;
+}
+
+
+/* Перемикання логотипа залежно від теми */
+.logo .logo__image--light {
+    display: block;
+}
+
+.logo .logo__image--dark {
+    display: none;
+}
+
+body.dark-theme .logo .logo__image--light {
+    display: none;
+}
+
+body.dark-theme .logo .logo__image--dark {
+    display: block;
+}

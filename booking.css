@@ -301,3 +301,158 @@
 .feedback-modal__button:hover {
     background: var(--color-primary-light);
 }
+
+
+/* ===== Бронювання — темна тема Green Hill ===== */
+
+body.dark-theme .booking {
+    color: #E5EDE6;
+}
+
+body.dark-theme .booking__intro h1 {
+    color: #C2D9C6;
+}
+
+body.dark-theme .booking__intro p {
+    color: #D5E1D7;
+}
+
+body.dark-theme .booking-form {
+    background: #243329;
+    border-color: #536858;
+}
+
+body.dark-theme .booking-form__note {
+    color: #BBD2BF;
+}
+
+body.dark-theme .booking-form label {
+    color: #E5EDE6;
+}
+
+body.dark-theme .required {
+    color: #D6B978;
+}
+
+body.dark-theme .form-field input,
+body.dark-theme .form-field select,
+body.dark-theme .form-field textarea {
+    background: #1C2C21;
+    color: #E5EDE6;
+    border-color: #536858;
+}
+
+body.dark-theme .form-field input::placeholder,
+body.dark-theme .form-field textarea::placeholder {
+    color: #A8B9AA;
+}
+
+body.dark-theme .form-field input:focus-visible,
+body.dark-theme .form-field select:focus-visible,
+body.dark-theme .form-field textarea:focus-visible {
+    outline-color: #A8C5AE;
+}
+
+body.dark-theme .booking-steps {
+    background: #293D30;
+    color: #E5EDE6;
+}
+
+body.dark-theme .booking-steps h2 {
+    color: #C2D9C6;
+}
+
+body.dark-theme .booking-steps__list li::before {
+    background: #A8C5AE;
+    color: #1C2C21;
+}
+
+body.dark-theme .booking__back a {
+    color: #C2D9C6;
+}
+
+body.dark-theme .feedback-modal__content {
+    background: #243329;
+    color: #E5EDE6;
+}
+
+body.dark-theme .feedback-modal__content h2 {
+    color: #C2D9C6;
+}
+
+body.dark-theme .feedback-modal__content p {
+    color: #D5E1D7;
+}
+
+body.dark-theme .feedback-modal__icon {
+    color: #A8C5AE;
+}
+
+
+/* ===== Форма зворотного зв'язку — темна тема ===== */
+
+body.dark-theme .feedback {
+    background: #243329 !important;
+    border-color: #536858 !important;
+    color: #E5EDE6;
+}
+
+body.dark-theme .feedback__intro h2 {
+    color: #C2D9C6 !important;
+}
+
+body.dark-theme .feedback__intro p {
+    color: #D5E1D7 !important;
+}
+
+body.dark-theme .feedback-form__note {
+    color: #BBD2BF !important;
+}
+
+body.dark-theme .feedback-form label {
+    color: #E5EDE6 !important;
+}
+
+body.dark-theme .feedback-form input:not([type="checkbox"]),
+body.dark-theme .feedback-form textarea {
+    background: #1C2C21 !important;
+    color: #E5EDE6 !important;
+    border-color: #536858 !important;
+}
+
+body.dark-theme .feedback-form input::placeholder,
+body.dark-theme .feedback-form textarea::placeholder {
+    color: #A8B9AA;
+}
+
+body.dark-theme .feedback-form input:focus,
+body.dark-theme .feedback-form textarea:focus {
+    border-color: #A8C5AE !important;
+    box-shadow: 0 0 0 3px rgba(168, 197, 174, 0.2);
+}
+
+body.dark-theme .feedback-form__agreement label {
+    color: #D5E1D7 !important;
+}
+
+body.dark-theme .feedback-form input[type="checkbox"] {
+    accent-color: #A8C5AE;
+}
+
+
+/* Перемикання логотипа залежно від теми */
+.logo .logo__image--light {
+    display: block;
+}
+
+.logo .logo__image--dark {
+    display: none;
+}
+
+body.dark-theme .logo .logo__image--light {
+    display: none;
+}
+
+body.dark-theme .logo .logo__image--dark {
+    display: block;
+}

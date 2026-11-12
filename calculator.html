@@ -38,7 +38,13 @@
 <body>
     <header class="header">
         <a class="logo" href="index.html" aria-label="Green Hill — на головну">
-            <img src="images/logo.svg" alt="">
+            
+<img class="logo__image logo__image--light"
+     src="images/logo-mark.svg" alt="">
+
+<img class="logo__image logo__image--dark"
+     src="images/logo-mark-dark.svg" alt="">
+
             <span>Green Hill</span>
         </a>
 
@@ -52,7 +58,15 @@
                 <li><a href="index.html#contacts">Контакти</a></li>
             </ul>
         </nav>
-
+<button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Увімкнути темну тему"
+    title="Змінити тему"
+>
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+</button>
 <a class="button header__button" href="booking.html">
     <i class="fas fa-calendar-check icon" aria-hidden="true"></i>
     Забронювати
@@ -279,7 +293,7 @@
         </address>
         <p>© 2026 Green Hill. Усі права захищені.</p>
     </footer>
-
+<script src="js/theme.js"></script>
 </body>
 
 </html>

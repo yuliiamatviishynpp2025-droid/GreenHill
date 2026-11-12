@@ -51,7 +51,11 @@
 <body>
     <header class="header">
         <a class="logo" href="#home" aria-label="Green Hill — на головну">
-            <img src="images/logo-mark.svg" alt="">
+            <img class="logo__image logo__image--light"
+     src="images/logo-mark.svg" alt="">
+
+<img class="logo__image logo__image--dark"
+     src="images/logo-mark-dark.svg" alt="">
             <span>Green Hill</span>
         </a>
         <nav class="navigation" aria-label="Головна навігація">
@@ -64,7 +68,15 @@
         <li><a href="#contacts">Контакти</a></li>
     </ul>
 </nav>
-
+<button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Увімкнути темну тему"
+    title="Змінити тему"
+>
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+</button>
         <a class="button header__button" href="booking.html">
             <i class="fas fa-calendar-check icon" aria-hidden="true"></i>
             Забронювати
@@ -776,6 +788,7 @@
     });
 </script>
 <script src="js/reviews.js"></script>
+<script src="js/theme.js"></script>
 </body>
 
 </html>
