@@ -38,7 +38,10 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
 />
-
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 </head>
 
 <body>
@@ -475,95 +478,86 @@
 </section>
 
 
+
 <section class="reviews" id="reviews">
     <h2>
         Відгуки гостей
         <i class="fa-regular fa-message icon" aria-hidden="true"></i>
     </h2>
 
-    <div class="reviews__list">
+    <div class="swiper reviews-slider">
+    <div class="swiper-wrapper">
 
-        <article class="review-card">
-            <img
-                class="review-card__image"
-                src="images/gal4.jpg"
-                alt="Гості біля котеджу Green Hill взимку"
-            >
+        <!-- Відгук 1 -->
+      <article class="review-card swiper-slide">
+            <img class="review-card__image" src="images/gal4.jpg" alt="Гості біля котеджу Green Hill взимку">
 
             <div class="review-card__content">
                 <div class="review-card__rating">★★★★★</div>
-
                 <h3>Реальний відгук гостя</h3>
-
-                <p>
-                    «Добрий вечір 😊 Хотіла подякувати за відпочинок у Вас!
-                    Територія неймовірна, комфортні і теплі будиночки,
-                    є все необхідне. Якраз для відпочинку від міської
-                    метушні! Баня то взагалі кайф 🔥 Окрема подяка дуже
-                    гостинним господарям 💗»
-                </p>
-
-                <span class="review-card__source">
-                    Реальний відгук • Instagram
-                </span>
+                <p>«Добрий вечір 😊 Хотіла подякувати за відпочинок у Вас! Територія неймовірна, комфортні і теплі будиночки, є все необхідне. Якраз для відпочинку від міської метушні! Баня то взагалі кайф 🔥 Окрема подяка дуже гостинним господарям 💗»</p>
+                <span class="review-card__source">Реальний відгук • Instagram</span>
             </div>
         </article>
 
-
-        <article class="review-card">
-            <img
-                class="review-card__image"
-                src="images/review-2.jpg"
-                alt="Відпочинок у чані Green Hill біля річки"
-            >
+        <!-- Відгук 2 -->
+       <article class="review-card swiper-slide">
+            <img class="review-card__image" src="images/review-2.jpg" alt="Відпочинок у чані Green Hill біля річки">
 
             <div class="review-card__content">
                 <div class="review-card__rating">★★★★★</div>
-
                 <h3>Реальний відгук гостя</h3>
-
-                <p>
-                    «Все було просто чудово! Господарка дуже хороша людина,
-                    розуміюча і ввічлива. Неймовірна природа і місцерозташування,
-                    охайна територія і будинок з усіма зручностями.
-                    За сауну та чан особлива подяка та рекомендація.
-                    Обов’язково повернемося ще не раз, дякуємо!»
-                </p>
-
-                <span class="review-card__source">
-                    Реальний відгук • Instagram
-                </span>
+                <p>«Все було просто чудово! Господарка дуже хороша людина, розуміюча і ввічлива. Неймовірна природа і місцерозташування, охайна територія і будинок з усіма зручностями. За сауну та чан особлива подяка та рекомендація. Обов’язково повернемося ще не раз, дякуємо!»</p>
+                <span class="review-card__source">Реальний відгук • Instagram</span>
             </div>
         </article>
 
-
-        <article class="review-card">
-            <img
-                class="review-card__image"
-                src="images/review-3.jpg"
-                alt="Котедж Green Hill на фоні Карпатських гір"
-            >
+        <!-- Відгук 3 -->
+       <article class="review-card swiper-slide">
+            <img class="review-card__image" src="images/review-3.jpg" alt="Котедж Green Hill на фоні Карпатських гір">
 
             <div class="review-card__content">
                 <div class="review-card__rating">★★★★★</div>
-
                 <h3>Реальний відгук гостя</h3>
-
-                <p>
-                    «Добрий вечір! Хотіла подякувати Вам за неймовірний
-                    відпочинок. Все було дуже чудово. А особливо зачаровує
-                    чан з видом на річку. Обов’язково повернемося ще!
-                    Дякуємо!!!»
-                </p>
-
-                <span class="review-card__source">
-                    Реальний відгук • Instagram
-                </span>
+                <p>«Добрий вечір! Хотіла подякувати Вам за неймовірний відпочинок. Все було дуже чудово. А особливо зачаровує чан з видом на річку. Обов’язково повернемося ще! Дякуємо!!!»</p>
+                <span class="review-card__source">Реальний відгук • Instagram</span>
             </div>
         </article>
+
+        <!-- Відгук 4 -->
+        <article class="review-card swiper-slide">
+            <img class="review-card__image" src="images/rewiew-4.jpg" alt="Засніжена територія Green Hill біля котеджу">
+
+            <div class="review-card__content">
+                <div class="review-card__rating">★★★★★</div>
+                <h3>Реальний відгук гостя</h3>
+                <p>«Добрий день! Вибачте, не встигла написати відгук швидше. Дуже дякую вам за такий крутий відпочинок! Нам сподобалося все. Проживання було комфортним, у будиночку дуже гарно і зручно, а вигляд просто неймовірний. Нам дуже сподобалася баня, було дуже класно! І особливе дякую за гостинність та клієнтоорієнтованість. Огірочки були неймовірні 😻 Колись обов’язково повернемось!»</p>
+                <span class="review-card__source">Реальний відгук • Instagram</span>
+            </div>
+        </article>
+
+        <!-- Відгук 5 -->
+        <article class="review-card swiper-slide">
+            <img class="review-card__image" src="images/rewiew-5.jpg" alt="Затишний інтер’єр котеджу Green Hill">
+
+            <div class="review-card__content">
+                <div class="review-card__rating">★★★★★</div>
+                <h3>Реальний відгук гостя</h3>
+                <p>«Дякуємо Green Hill за гостинність! Дуже охайний, чистий будиночок з усім необхідним. Чан-джакузі та сауна з виглядом на річку — це вогонь! Насолоджувалися часом, проведеним там. Територія безпечна і доглянута. Облаштована зона барбекю з безкоштовними дровами — це величезний плюс. Окремої уваги заслуговують і господарі: дуже привітні, завжди на зв’язку та дбають про комфорт своїх гостей. Особисто ми найбільше кайфували від панорамних вікон із чудовим краєвидом. Прокидатися з таким виглядом із вікна — просто мед для душі! Ще раз дякуємо, хороших вам гостей! 🥰»</p>
+                <span class="review-card__source">Реальний відгук • Instagram • 18 січня 2025 року</span>
+            </div>
+        </article>
+
+        </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev" aria-label="Попередній відгук"></div>
+    <div class="swiper-button-next" aria-label="Наступний відгук"></div>
 
     </div>
 </section>
+
 
         <section class="about-details" id="about-details">
     <h2>Про Green Hill</h2>
@@ -763,6 +757,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <!-- Green Hill Gallery -->
 <script src="js/gallery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="js/reviews.js"></script>
 </body>
 
 </html>
