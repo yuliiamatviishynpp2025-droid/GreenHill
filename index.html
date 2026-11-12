@@ -33,6 +33,11 @@
         };
     </script>
     <link rel="stylesheet" href="style.css">
+    <!-- Fancybox v5 CSS -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
 
 </head>
 
@@ -396,44 +401,79 @@
 </script>
 
 
+
 <section class="gallery" id="gallery">
     <p class="gallery__eyebrow">АТМОСФЕРА GREEN HILL</p>
+
     <h2>
         Моменти, які хочеться зберегти
         <i class="fa-regular fa-image gallery__title-icon" aria-hidden="true"></i>
     </h2>
-    <p class="gallery__intro">Природа, затишок і відпочинок у кожній деталі</p>
+
+    <p class="gallery__intro">
+        Природа, затишок і відпочинок у кожній деталі
+    </p>
 
     <div class="gallery__list" id="gallery-photos">
-        <figure class="gallery__item gallery__item--featured">
-            <img src="images/gal1.webp" alt="Карпатський краєвид із тераси котеджу">
+
+        <figure class="gallery__item gallery__item--featured"
+                data-gallery-album="terrace"
+                role="button" tabindex="0"
+                aria-label="Відкрити альбом: Тераса з краєвидом">
+
+            <img src="images/gal1.webp"
+                 alt="Карпатський краєвид із тераси котеджу">
+
             <figcaption>Тераса з краєвидом</figcaption>
             <span class="gallery__arrow" aria-hidden="true">→</span>
         </figure>
 
-        <figure class="gallery__item">
-            <img src="images/gal2.webp" alt="Басейн на території Green Hill серед Карпат">
+        <figure class="gallery__item"
+                data-gallery-album="pool"
+                role="button" tabindex="0"
+                aria-label="Відкрити альбом: Відпочинок біля басейну">
+
+            <img src="images/gal2.webp"
+                 alt="Басейн на території Green Hill серед Карпат">
+
             <figcaption>Відпочинок біля басейну</figcaption>
             <span class="gallery__arrow" aria-hidden="true">→</span>
         </figure>
 
-        <figure class="gallery__item">
-            <img src="images/gal3.jpg" alt="Затишна зона відпочинку з краєвидом на природу">
+        <figure class="gallery__item"
+                data-gallery-album="interior"
+                role="button" tabindex="0"
+                aria-label="Відкрити альбом: Затишок у деталях">
+
+            <img src="images/gal3.jpg"
+                 alt="Затишна зона відпочинку з краєвидом на природу">
+
             <figcaption>Затишок у деталях</figcaption>
             <span class="gallery__arrow" aria-hidden="true">→</span>
         </figure>
 
-        <figure class="gallery__item">
-            <img src="images/gal4.jpg" alt="Гості відпочивають біля котеджу взимку">
+        <figure class="gallery__item"
+                data-gallery-album="seasons"
+                role="button" tabindex="0"
+                aria-label="Відкрити альбом: Атмосфера кожного сезону">
+
+            <img src="images/gal4.jpg"
+                 alt="Гості відпочивають біля котеджу взимку">
+
             <figcaption>Атмосфера кожного сезону</figcaption>
             <span class="gallery__arrow" aria-hidden="true">→</span>
         </figure>
+
     </div>
-    <a class="gallery__link" href="#gallery-photos">
+
+    <a class="gallery__link"
+       href="#gallery-photos"
+       data-gallery-all>
         Переглянути всі фото
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
     </a>
 </section>
+
 
 <section class="reviews" id="reviews">
     <h2>
@@ -719,6 +759,10 @@
     <p>Green Hill — відпочинок у Карпатах</p>
     <p>© 2026 Green Hill. Усі права захищені.</p>
 </footer>
+<!-- Fancybox v5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<!-- Green Hill Gallery -->
+<script src="js/gallery.js"></script>
 </body>
 
 </html>
