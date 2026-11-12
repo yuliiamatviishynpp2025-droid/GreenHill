@@ -42,6 +42,10 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+/>
 </head>
 
 <body>
@@ -166,7 +170,7 @@
             <p>Оберіть затишне місце для своєї наступної подорожі в гори.</p>
 
             <div class="cottages__list">
-                <article class="cottage-card">
+               <article class="cottage-card" data-aos="fade-up">
                     <img src="images/cottage-1.jpg" alt="Затишний котедж серед Карпатських гір">
                     <div class="cottage-card__content">
                         <h3>Котедж 1</h3>
@@ -175,7 +179,7 @@
                     </div>
                 </article>
 
-                <article class="cottage-card">
+                <article class="cottage-card" data-aos="fade-up">
                     <img src="images/cottage-2.jpg" alt="Сучасний котедж для відпочинку в Карпатах">
                     <div class="cottage-card__content">
                         <h3>Котедж 2</h3>
@@ -211,17 +215,17 @@
             <h2>Миті відпочинку</h2>
 
             <div class="experience__list">
-                <article class="experience-card">
+                <article class="experience-card"data-aos="fade-up">
                     <img src="images/nature.jpg" alt="Зелена природа Карпат і гірські краєвиди">
                     <h3>Карпатські краєвиди</h3>
                 </article>
 
-                <article class="experience-card">
+                <article class="experience-card"data-aos="fade-up" data-aos-delay="150">
                     <img src="images/interior.jpg" alt="Затишний інтер'єр котеджу">
                     <h3>Інтер’єр котеджу</h3>
                 </article>
 
-                <article class="experience-card">
+                <article class="experience-card"data-aos="fade-up" data-aos-delay="300">
                     <img src="images/family.jpg" alt="Відпочинок для всієї родини">
                     <h3>Моменти разом</h3>
                 </article>
@@ -420,6 +424,7 @@
     <div class="gallery__list" id="gallery-photos">
 
         <figure class="gallery__item gallery__item--featured"
+        data-aos="fade-up"
                 data-gallery-album="terrace"
                 role="button" tabindex="0"
                 aria-label="Відкрити альбом: Тераса з краєвидом">
@@ -432,6 +437,7 @@
         </figure>
 
         <figure class="gallery__item"
+                data-aos="fade-up"
                 data-gallery-album="pool"
                 role="button" tabindex="0"
                 aria-label="Відкрити альбом: Відпочинок біля басейну">
@@ -444,6 +450,7 @@
         </figure>
 
         <figure class="gallery__item"
+        data-aos="fade-up"
                 data-gallery-album="interior"
                 role="button" tabindex="0"
                 aria-label="Відкрити альбом: Затишок у деталях">
@@ -456,6 +463,7 @@
         </figure>
 
         <figure class="gallery__item"
+        data-aos="fade-up"
                 data-gallery-album="seasons"
                 role="button" tabindex="0"
                 aria-label="Відкрити альбом: Атмосфера кожного сезону">
@@ -489,7 +497,7 @@
     <div class="swiper-wrapper">
 
         <!-- Відгук 1 -->
-      <article class="review-card swiper-slide">
+      <article class="review-card swiper-slide"data-aos="fade-up">
             <img class="review-card__image" src="images/gal4.jpg" alt="Гості біля котеджу Green Hill взимку">
 
             <div class="review-card__content">
@@ -501,7 +509,7 @@
         </article>
 
         <!-- Відгук 2 -->
-       <article class="review-card swiper-slide">
+       <article class="review-card swiper-slide"data-aos="fade-up">
             <img class="review-card__image" src="images/review-2.jpg" alt="Відпочинок у чані Green Hill біля річки">
 
             <div class="review-card__content">
@@ -513,7 +521,7 @@
         </article>
 
         <!-- Відгук 3 -->
-       <article class="review-card swiper-slide">
+       <article class="review-card swiper-slide"data-aos="fade-up">
             <img class="review-card__image" src="images/review-3.jpg" alt="Котедж Green Hill на фоні Карпатських гір">
 
             <div class="review-card__content">
@@ -525,7 +533,7 @@
         </article>
 
         <!-- Відгук 4 -->
-        <article class="review-card swiper-slide">
+        <article class="review-card swiper-slide"data-aos="fade-up">
             <img class="review-card__image" src="images/rewiew-4.jpg" alt="Засніжена територія Green Hill біля котеджу">
 
             <div class="review-card__content">
@@ -537,7 +545,7 @@
         </article>
 
         <!-- Відгук 5 -->
-        <article class="review-card swiper-slide">
+        <article class="review-card swiper-slide"data-aos="fade-up">
             <img class="review-card__image" src="images/rewiew-5.jpg" alt="Затишний інтер’єр котеджу Green Hill">
 
             <div class="review-card__content">
@@ -564,7 +572,7 @@
 
     <div class="about-details__list">
 
-        <article class="about-details__card">
+        <article class="about-details__card"data-aos="fade-right">
             <h3>Коротко про Green Hill</h3>
 
             <p>
@@ -588,7 +596,7 @@
             <img class="about-details__image" src="images/p_proGH.jpg" alt="Котедж Green Hill серед Карпатських гір">
         </article>
 
-        <article class="about-details__card">
+        <article class="about-details__card"data-aos="fade-left">
             <h3>Наші переваги</h3>
 
             <p>
@@ -758,7 +766,15 @@
 <!-- Green Hill Gallery -->
 <script src="js/gallery.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+    });
+</script>
 <script src="js/reviews.js"></script>
 </body>
 
