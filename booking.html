@@ -82,7 +82,8 @@
             </div>
 
             <div class="booking__layout">
-                <form class="booking-form" action="#" method="post">
+               <form class="booking-form" name="booking" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="booking">
                     <p class="booking-form__note">Поля, позначені <span aria-hidden="true">*</span>, обов’язкові
                         для заповнення.</p>
 
@@ -94,8 +95,17 @@
                     <div class="booking-form__row">
                         <div class="form-field">
                             <label for="phone">Номер телефону <span class="required" aria-hidden="true">*</span></label>
-                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="097 000 00 00"
-                                required>
+                            <input
+    type="tel"
+    id="phone"
+    name="phone"
+    autocomplete="tel"
+    placeholder="+380 97 000 00 00"
+    pattern="(\+380|380|0)[0-9]{9}"
+    minlength="10"
+    maxlength="13"
+    title="Введіть український номер телефону, наприклад +380971234567"
+    required>
                         </div>
 
                         <div class="form-field">
@@ -127,7 +137,7 @@
 
                     <div class="form-field">
                         <label for="guests">Кількість гостей <span class="required" aria-hidden="true">*</span></label>
-                        <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+                        <input type="number" id="guests" name="guests" min="1" max="4" value="2" required>
                     </div>
 
                     <div class="form-field">
@@ -345,6 +355,7 @@
         </footer>
 
     <!-- JavaScript для валідації форми -->
+     <script src="js/booking-validation.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/theme.js"></script>
 </body>
