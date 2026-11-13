@@ -130,19 +130,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.addEventListener("submit", event => {
-        let isFormValid = true;
+    let isFormValid = true;
 
-        fields.forEach(input => {
-            if (!validateField(input)) {
-                isFormValid = false;
-            }
-        });
-
-        if (!isFormValid) {
-            event.preventDefault();
-            form.reportValidity();
+    fields.forEach(input => {
+        if (!validateField(input)) {
+            isFormValid = false;
         }
     });
+
+    if (!isFormValid) {
+        event.preventDefault();
+        form.reportValidity();
+    }
+});
 
     const today = new Date();
     const todayString = [
