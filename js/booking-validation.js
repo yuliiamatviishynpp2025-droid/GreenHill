@@ -1,7 +1,5 @@
 
 "use strict";
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZKri0g_icvolndCAhwjaLSlUwo9kc7ngWobznDErS0HQL9Vf7ur5WLjA5Tem16GPW/exec";
-
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".booking-form");
 
@@ -88,19 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        if (input === checkoutInput && checkinInput.value) {
-            if (checkoutInput.value <= checkinInput.value) {
-                showError(input, "Дата виїзду повинна бути пізніше дати заїзду.");
-                return false;
-            }
-        }
+       if (
+    (input === checkoutInput || input === checkinInput) &&
+    checkinInput.value &&
+    checkoutInput.value
+) {
+    const checkInDate = new Date(checkinInput.value + "T00:00:00");
+    const checkOutDate = new Date(checkoutInput.value + "T00:00:00");
 
-        if (input === checkinInput && checkoutInput.value) {
-            if (checkoutInput.value <= checkinInput.value) {
-                showError(input, "Дата заїзду повинна бути раніше дати виїзду.");
-                return false;
-            }
-        }
+    if (checkOutDate.getTime() <= checkInDate.getTime()) {
+        showError(
+            input,
+            input === checkoutInput
+                ? "Дата виїзду повинна бути пізніше дати заїзду."
+                : "Дата заїзду повинна бути раніше дати виїзду."
+        );
+        return false;
+    }
+}
 
         if (input === guestsInput) {
             const guests = Number(input.value);
