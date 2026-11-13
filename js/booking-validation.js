@@ -1,5 +1,6 @@
 
 "use strict";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZKri0g_icvolndCAhwjaLSlUwo9kc7ngWobznDErS0HQL9Vf7ur5WLjA5Tem16GPW/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".booking-form");
