@@ -11,6 +11,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkout = document.getElementById("checkout");
     const cottage = document.getElementById("availability-cottage");
     const guests = document.getElementById("guests");
+    const today = new Date();
+const todayString = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0")
+].join("-");
+
+checkin.min = todayString;
+
+checkin.addEventListener("change", () => {
+    if (checkin.value) {
+        const nextDay = new Date(checkin.value + "T00:00:00");
+        nextDay.setDate(nextDay.getDate() + 1);
+
+        const minCheckout = [
+            nextDay.getFullYear(),
+            String(nextDay.getMonth() + 1).padStart(2, "0"),
+            String(nextDay.getDate()).padStart(2, "0")
+        ].join("-");
+
+        checkout.min = minCheckout;
+
+        if (checkout.value && checkout.value < minCheckout) {
+            checkout.value = "";
+        }
+    }
+});
 
     const result = document.createElement("p");
     result.className = "availability__result";
