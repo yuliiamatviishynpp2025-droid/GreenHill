@@ -1379,6 +1379,106 @@ a {
     border-radius: var(--radius);
 }
 
+.stay-times {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 840px;
+    gap: 16px;
+    margin: 0 auto 32px;
+    padding: 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: 12px;
+    background: var(--color-white);
+    box-shadow: 0 2px 8px rgba(38, 53, 43, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-details__card .stay-times {
+    margin: 20px auto 0;
+}
+
+.stay-times:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(38, 53, 43, 0.1);
+}
+
+.stay-times__item {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.stay-times__icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 16px;
+}
+
+.stay-times__label,
+.stay-times__time {
+    margin: 0;
+}
+
+.stay-times__label {
+    color: var(--color-primary-light);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stay-times__time {
+    color: var(--color-primary);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+    .stay-times {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .stay-times__item {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .stay-times__icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+        font-size: 14px;
+    }
+
+    .stay-times__time {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 380px) {
+    .stay-times {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stay-times {
+        transition: none;
+    }
+
+    .stay-times:hover {
+        transform: none;
+    }
+}
+
 /* Часті запитання */
 
 .faq {
