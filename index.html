@@ -140,7 +140,7 @@
 
         <section class="about" id="about">
             <h2>Відпочинок, який надихає</h2>
-            <p class="about__description">Свіже гірське повітря, затишок серед Карпат і час, щоб побути разом або наодинці з природою.
+            <p class="about__description"><span id="about-typed-text">Свіже гірське повітря, затишок серед Карпат і час, щоб побути разом або наодинці з природою.</span>
             </p>
             <div class="about__features">
                 <article class="about__card">
@@ -818,6 +818,36 @@
 <script src="js/reviews.js"></script>
 <script src="js/theme.js"></script>
 <script src="js/availability.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+    (() => {
+        const textElement = document.getElementById("about-typed-text");
+
+        if (!textElement || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
+
+        if (typeof Typed === "undefined") {
+            console.error("Не вдалося завантажити Typed.js для анімації тексту.");
+            return;
+        }
+
+        new Typed(textElement, {
+            strings: [
+                "Свіже гірське повітря, затишок серед Карпат і час, щоб побути разом або наодинці з природою.",
+                "Відкрийте для себе красу Карпат та насолоджуйтеся кожною миттю відпочинку.",
+                "Затишні котеджі, мальовничі краєвиди та незабутні моменти з близькими.",
+                "Залиште щоденні турботи позаду та дозвольте собі справжній відпочинок."
+            ],
+            typeSpeed: 45,
+            backSpeed: 23,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: "|"
+        });
+    })();
+</script>
 </body>
 
 </html>

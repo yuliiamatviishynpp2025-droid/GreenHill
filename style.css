@@ -361,9 +361,14 @@ a {
 
 .about__description {
     max-width: 720px;
+    min-height: 4.95em;
     margin: 0 auto;
     font-size: 18px;
     line-height: 1.65;
+}
+
+#about-typed-text + .typed-cursor {
+    color: var(--color-primary);
 }
 
 .about__features {
@@ -1990,6 +1995,7 @@ a {
     }
 
     .about__description {
+        min-height: 6.6em;
         font-size: 18px;
     }
 
