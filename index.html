@@ -801,6 +801,37 @@
     <p>Green Hill — відпочинок у Карпатах</p>
     <p>© 2026 Green Hill. Усі права захищені.</p>
 </footer>
+<button class="back-to-top" type="button" aria-label="Повернутися нагору" title="Повернутися нагору" aria-hidden="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 19V5M6 11l6-6 6 6" />
+    </svg>
+</button>
+<script>
+    (() => {
+        const button = document.querySelector(".back-to-top");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        if (!button) {
+            return;
+        }
+
+        const updateVisibility = () => {
+            const isVisible = window.scrollY > 360;
+            button.classList.toggle("is-visible", isVisible);
+            button.setAttribute("aria-hidden", String(!isVisible));
+        };
+
+        window.addEventListener("scroll", updateVisibility, { passive: true });
+        updateVisibility();
+
+        button.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: reducedMotion.matches ? "auto" : "smooth"
+            });
+        });
+    })();
+</script>
 <!-- Fancybox v5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <!-- Green Hill Gallery -->
