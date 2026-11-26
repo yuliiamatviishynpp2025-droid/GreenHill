@@ -200,7 +200,7 @@ feedbackForm.addEventListener("submit", function (event) {
 
 window.addEventListener("message", function (event) {
     // Перевіряємо, що повідомлення надійшло саме від нашого iframe
-    if (event.source !== feedbackIframe.contentWindow) return;
+    
 
     let response;
 
