@@ -108,6 +108,7 @@
     class="booking-form"
     name="booking"
     method="POST"
+    target="bookingResponseFrame"
     action="https://script.google.com/macros/s/AKfycbzZKri0g_icvolndCAhwjaLSlUwo9kc7ngWobznDErS0HQL9Vf7ur5WLjA5Tem16GPW/exec">
                 
                     <p class="booking-form__note">Поля, позначені <span aria-hidden="true">*</span>, обов’язкові
@@ -173,6 +174,44 @@
 
                     <button class="button booking-form__submit" type="submit">Надіслати заявку</button>
                 </form>
+                <iframe
+    name="bookingResponseFrame"
+    id="bookingResponseFrame"
+    hidden>
+</iframe>
+<!-- Модальне вікно успішного бронювання -->
+<div id="bookingSuccessModal"
+    class="feedback-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="bookingSuccessTitle"
+    aria-describedby="bookingSuccessDescription"
+    aria-hidden="true"
+    hidden>
+
+    <div class="feedback-modal__content">
+
+        <div class="feedback-modal__icon">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+        </div>
+
+        <h2 id="bookingSuccessTitle">
+            Дякуємо за заявку!
+        </h2>
+
+        <p id="bookingSuccessDescription">
+            Вашу заявку на бронювання успішно отримано.
+            Очікуйте підтвердження від команди Green Hill.
+        </p>
+
+        <button type="button"
+            id="closeBookingSuccessModal"
+            class="button feedback-modal__button">
+            Чудово!
+        </button>
+
+    </div>
+</div>
 
                 <aside class="booking-steps" aria-labelledby="steps-title">
                     <h2 id="steps-title">Як це працює?</h2>

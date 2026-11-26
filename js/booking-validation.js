@@ -132,7 +132,22 @@ document.addEventListener("DOMContentLoaded", () => {
         validateField(checkoutInput);
     });
 
-    form.addEventListener("submit", event => {
+   
+let isSubmitting = false;
+const today = new Date();
+    const todayString = [
+        today.getFullYear(),
+        String(today.getMonth() + 1).padStart(2, "0"),
+        String(today.getDate()).padStart(2, "0")
+    ].join("-");
+
+    checkinInput.min = todayString;
+    checkoutInput.min = todayString;
+form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
     let isFormValid = true;
 
     fields.forEach(input => {
@@ -142,18 +157,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (!isFormValid) {
-        event.preventDefault();
         form.reportValidity();
+        return;
+    }
+
+    isSubmitting = true;
+
+    const submitButton = form.querySelector(".booking-form__submit");
+    submitButton.disabled = true;
+    submitButton.textContent = "Надсилання...";
+
+    // Надсилаємо форму у прихований iframe
+    form.submit();
+});
+
+
+// Отримання відповіді від Google Apps Script
+window.addEventListener("message", event => {
+    let response;
+
+    try {
+        response = typeof event.data === "string"
+            ? JSON.parse(event.data)
+            : event.data;
+    } catch (error) {
+        return;
+    }
+
+    if (!response || response.type !== "GREEN_HILL_BOOKING") {
+        return;
+    }
+
+    const submitButton = form.querySelector(".booking-form__submit");
+
+    isSubmitting = false;
+    submitButton.disabled = false;
+    submitButton.textContent = "Надіслати заявку";
+
+    if (response.success) {
+        const modal = document.getElementById("bookingSuccessModal");
+
+        modal.hidden = false;
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        form.reset();
+
+        // Відновлюємо мінімальні дати після очищення форми
+        checkinInput.min = todayString;
+        checkoutInput.min = todayString;
+    } else {
+        alert(response.message || "Не вдалося надіслати заявку.");
     }
 });
 
-    const today = new Date();
-    const todayString = [
-        today.getFullYear(),
-        String(today.getMonth() + 1).padStart(2, "0"),
-        String(today.getDate()).padStart(2, "0")
-    ].join("-");
+// Закриття модального вікна
+const bookingModal = document.getElementById("bookingSuccessModal");
+const closeBookingModal = document.getElementById("closeBookingSuccessModal");
 
-    checkinInput.min = todayString;
-    checkoutInput.min = todayString;
+closeBookingModal.addEventListener("click", () => {
+    bookingModal.hidden = true;
+    bookingModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+});
+
+    
 });
