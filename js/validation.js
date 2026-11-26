@@ -1,19 +1,21 @@
-// ===== Регулярні вирази для перевірки форми Green Hill =====
 
-// Перевірка імені
-const nameRegex = /^(?=.*[А-ЯІЇЄҐа-яіїєґA-Za-z])[А-ЯІЇЄҐа-яіїєґA-Za-z'’ -]{2,}$/;
+// ===== Налаштування =====
 
-// Перевірка електронної пошти
+const FEEDBACK_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxR-sjZoCWLTcz_dLVfTzEJULXWH6RPKJwYSSjHvp2hj_X76lG3oZGMOU8uTOqzqjcYnA/exec";
+
+// ===== Регулярні вирази =====
+
+const nameRegex =
+    /^(?=.*[А-ЯІЇЄҐа-яіїєґA-Za-z])[А-ЯІЇЄҐа-яіїєґA-Za-z'’ -]{2,}$/;
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-// Перевірка українського номера телефону
 const phoneRegex = /^\+380\d{9}$/;
 
-// Перевірка повідомлення
 const messageRegex = /^.{10,}$/s;
 
-
-// ===== Отримання елементів форми =====
+// ===== Отримання елементів =====
 
 const feedbackForm = document.getElementById("feedbackForm");
 
@@ -22,6 +24,27 @@ const emailInput = document.getElementById("feedback-email");
 const phoneInput = document.getElementById("feedback-phone");
 const messageInput = document.getElementById("feedback-message");
 const consentInput = document.getElementById("feedback-consent");
+
+const successModal = document.getElementById("successModal");
+const closeSuccessModal = document.getElementById("closeSuccessModal");
+
+const submitButton =
+    feedbackForm.querySelector('button[type="submit"]');
+
+// ===== Створення прихованого iframe =====
+
+const feedbackIframe = document.createElement("iframe");
+
+feedbackIframe.name = "greenHillFeedbackFrame";
+feedbackIframe.style.display = "none";
+feedbackIframe.title = "Обробка повідомлення";
+
+document.body.appendChild(feedbackIframe);
+
+// Налаштування форми для надсилання через iframe
+feedbackForm.action = FEEDBACK_SCRIPT_URL;
+feedbackForm.method = "POST";
+feedbackForm.target = feedbackIframe.name;
 
 // ===== Функція відображення помилки =====
 
@@ -57,8 +80,11 @@ function validateName() {
     const value = nameInput.value.trim();
 
     if (!nameRegex.test(value)) {
-        showError(nameInput, "nameError",
-            "Введіть коректне ім'я (мінімум 2 символи).");
+        showError(
+            nameInput,
+            "nameError",
+            "Введіть коректне ім'я (мінімум 2 символи)."
+        );
         return false;
     }
 
@@ -72,8 +98,11 @@ function validateEmail() {
     const value = emailInput.value.trim();
 
     if (!emailRegex.test(value)) {
-        showError(emailInput, "emailError",
-            "Введіть правильну електронну пошту.");
+        showError(
+            emailInput,
+            "emailError",
+            "Введіть правильну електронну пошту."
+        );
         return false;
     }
 
@@ -82,7 +111,6 @@ function validateEmail() {
 }
 
 // ===== Перевірка телефону =====
-
 
 function validatePhone() {
     const value = phoneInput.value.trim();
@@ -100,15 +128,17 @@ function validatePhone() {
     return true;
 }
 
-
 // ===== Перевірка повідомлення =====
 
 function validateMessage() {
     const value = messageInput.value.trim();
 
     if (!messageRegex.test(value)) {
-        showError(messageInput, "messageError",
-            "Повідомлення повинно містити мінімум 10 символів.");
+        showError(
+            messageInput,
+            "messageError",
+            "Повідомлення повинно містити мінімум 10 символів."
+        );
         return false;
     }
 
@@ -120,8 +150,11 @@ function validateMessage() {
 
 function validateConsent() {
     if (!consentInput.checked) {
-        showError(consentInput, "consentError",
-            "Підтвердьте згоду з політикою конфіденційності.");
+        showError(
+            consentInput,
+            "consentError",
+            "Підтвердьте згоду з політикою конфіденційності."
+        );
         return false;
     }
 
@@ -129,56 +162,79 @@ function validateConsent() {
     return true;
 }
 
-
 // ===== Динамічна перевірка полів =====
 
-// Перевірка імені під час введення
 nameInput.addEventListener("input", validateName);
-
-// Перевірка email під час введення
 emailInput.addEventListener("input", validateEmail);
-
-// Перевірка телефону під час введення
 phoneInput.addEventListener("input", validatePhone);
-
-// Перевірка повідомлення під час введення
 messageInput.addEventListener("input", validateMessage);
-
-// Перевірка згоди при зміні чекбокса
 consentInput.addEventListener("change", validateConsent);
 
-// ===== Перевірка всієї форми =====
+// ===== Обробка надсилання форми =====
+
+let isSubmitting = false;
 
 feedbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const isNameValid = validateName();
-    const isEmailValid = validateEmail();
-    const isPhoneValid = validatePhone();
-    const isMessageValid = validateMessage();
-    const isConsentValid = validateConsent();
+    if (isSubmitting) return;
 
     const isFormValid =
-        isNameValid &&
-        isEmailValid &&
-        isPhoneValid &&
-        isMessageValid &&
-        isConsentValid;
+        validateName() &&
+        validateEmail() &&
+        validatePhone() &&
+        validateMessage() &&
+        validateConsent();
 
-    if (isFormValid) {
-    openSuccessModal();
-}
+    if (!isFormValid) return;
+
+    isSubmitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = "Надсилання...";
+
+    // Надсилаємо форму через прихований iframe
+    feedbackForm.submit();
 });
 
+// ===== Отримання відповіді від Google Apps Script =====
+
+window.addEventListener("message", function (event) {
+    // Перевіряємо, що повідомлення надійшло саме від нашого iframe
+    if (event.source !== feedbackIframe.contentWindow) return;
+
+    let response;
+
+    try {
+        response = typeof event.data === "string"
+            ? JSON.parse(event.data)
+            : event.data;
+    } catch (error) {
+        return;
+    }
+
+    if (
+        !response ||
+        response.type !== "GREEN_HILL_FEEDBACK"
+    ) {
+        return;
+    }
+
+    isSubmitting = false;
+    submitButton.disabled = false;
+    submitButton.textContent = "Надіслати повідомлення";
+
+    if (response.success) {
+        openSuccessModal();
+    } else {
+        alert(
+            response.message ||
+            "Не вдалося надіслати повідомлення. Спробуйте ще раз."
+        );
+    }
+});
 
 // ===== Керування модальним вікном =====
 
-const successModal = document.getElementById("successModal");
-const closeSuccessModal = document.getElementById("closeSuccessModal");
-
-const submitButton = feedbackForm.querySelector('button[type="submit"]');
-
-// Відкриття модального вікна
 function openSuccessModal() {
     successModal.hidden = false;
     successModal.setAttribute("aria-hidden", "false");
@@ -186,15 +242,12 @@ function openSuccessModal() {
     closeSuccessModal.focus();
 }
 
-// Закриття модального вікна
 function hideSuccessModal() {
     successModal.hidden = true;
     successModal.setAttribute("aria-hidden", "true");
 
-    // Очищення форми
     feedbackForm.reset();
 
-    // Очищення станів полів
     const inputs = feedbackForm.querySelectorAll("input, textarea");
 
     inputs.forEach(input => {
@@ -202,11 +255,11 @@ function hideSuccessModal() {
         input.removeAttribute("aria-invalid");
     });
 
-    // Очищення повідомлень про помилки
-    feedbackForm.querySelectorAll(".feedback-form__error").forEach(error => {
-        error.textContent = "";
-        error.classList.add("hidden");
-    });
+    feedbackForm.querySelectorAll(".feedback-form__error")
+        .forEach(error => {
+            error.textContent = "";
+            error.classList.add("hidden");
+        });
 
     submitButton.focus();
 }
